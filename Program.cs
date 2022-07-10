@@ -112,14 +112,20 @@ public class Director
                 spaces[i] = '_';
             }
 
-        while(jumper.score > 0 || spaces.Contains('_')){
+        while(jumper.score > 0 ){
              
             jumper.display();
 
             Console.WriteLine(string.Join(" ",spaces));
+            
+            if(!spaces.Contains('_'))
+            {
+                break;
+            }
+
             char input = player.get_input();
-            
-            
+
+
             if(game_word.Contains(input))
             {
                 for(int i = 0; i < word_length; i++)
@@ -127,7 +133,7 @@ public class Director
                     if(letters[i] == input)
                     {
 
-                    spaces[i] = letters[i]; 
+                        spaces[i] = letters[i]; 
                     
                     }
                 }
